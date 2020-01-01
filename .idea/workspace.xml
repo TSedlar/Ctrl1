@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c548050-e549-4f43-b382-734b7bd0b64a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/sedlar/ctrl1/Ctrl1.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/sedlar/ctrl1/Ctrl1.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/sedlar/ctrl1/api/CtrlPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/sedlar/ctrl1/api/CtrlPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/sedlar/ctrl1/native/JavaLibraryPath.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/sedlar/ctrl1/native/JavaLibraryPath.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +133,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577841877894</updated>
-      <workItem from="1577841881412" duration="21786000" />
+      <workItem from="1577841881412" duration="22553000" />
     </task>
     <servers />
   </component>
@@ -159,22 +157,22 @@
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state x="918" y="344" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.30.2560.1410@0.30.2560.1410" timestamp="1577860413315" />
-    <state width="1901" height="232" key="GridCell.Tab.0.bottom" timestamp="1577866339059">
+    <state width="1901" height="232" key="GridCell.Tab.0.bottom" timestamp="1577867112379">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="1901" height="232" key="GridCell.Tab.0.bottom/0.30.2560.1410@0.30.2560.1410" timestamp="1577866339059" />
-    <state width="1901" height="232" key="GridCell.Tab.0.center" timestamp="1577866339059">
+    <state width="1901" height="232" key="GridCell.Tab.0.bottom/0.30.2560.1410@0.30.2560.1410" timestamp="1577867112379" />
+    <state width="1901" height="232" key="GridCell.Tab.0.center" timestamp="1577867112379">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="1901" height="232" key="GridCell.Tab.0.center/0.30.2560.1410@0.30.2560.1410" timestamp="1577866339059" />
-    <state width="1901" height="232" key="GridCell.Tab.0.left" timestamp="1577866339059">
+    <state width="1901" height="232" key="GridCell.Tab.0.center/0.30.2560.1410@0.30.2560.1410" timestamp="1577867112379" />
+    <state width="1901" height="232" key="GridCell.Tab.0.left" timestamp="1577867112378">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="1901" height="232" key="GridCell.Tab.0.left/0.30.2560.1410@0.30.2560.1410" timestamp="1577866339059" />
-    <state width="1901" height="232" key="GridCell.Tab.0.right" timestamp="1577866339059">
+    <state width="1901" height="232" key="GridCell.Tab.0.left/0.30.2560.1410@0.30.2560.1410" timestamp="1577867112378" />
+    <state width="1901" height="232" key="GridCell.Tab.0.right" timestamp="1577867112379">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="1901" height="232" key="GridCell.Tab.0.right/0.30.2560.1410@0.30.2560.1410" timestamp="1577866339059" />
+    <state width="1901" height="232" key="GridCell.Tab.0.right/0.30.2560.1410@0.30.2560.1410" timestamp="1577867112379" />
     <state x="803" y="348" key="Maven.ArtifactSearchDialog" timestamp="1577861335391">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>

@@ -18,6 +18,7 @@ import java.util.logging.LogManager
 import java.util.logging.Logger
 import javax.imageio.ImageIO
 import kotlin.collections.ArrayList
+import kotlin.system.exitProcess
 
 private val pluginProperties = Properties()
 private val pluginPropFile = File(JavaLibraryPath.SITE, "plugins.properties")
@@ -55,6 +56,7 @@ private fun doExit() {
     GlobalScreen.unregisterNativeHook()
     println("Unregistered NativeKeyListener")
     println("Shut down")
+    Runtime.getRuntime().halt(0)
 }
 
 fun writePluginProperties() {
