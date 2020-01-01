@@ -1,9 +1,14 @@
 package me.sedlar.ctrl1.native
 
+import me.sedlar.ctrl1.Ctrl1
 import net.harawata.appdirs.AppDirsFactory
+import java.awt.Toolkit
+import java.awt.image.BufferedImage
 import java.io.File
 import java.nio.file.Files
 import java.util.*
+import javax.imageio.ImageIO
+
 
 object JavaLibraryPath {
 
@@ -66,6 +71,11 @@ object JavaLibraryPath {
     private fun is64System(): Boolean {
         return System.getProperty("sun.arch.data.model").contains("64")
     }
+}
+
+fun getResourceImage(pathAndFileName: String?): BufferedImage {
+    val url = Ctrl1::class.java.getResource(pathAndFileName)
+    return ImageIO.read(url)
 }
 
 val File.normalizedPath: String

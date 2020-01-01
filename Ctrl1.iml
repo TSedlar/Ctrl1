@@ -38,15 +38,7 @@
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna-platform:5.4.0" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna:5.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.1stleg:jnativehook:2.1.0" level="project" />
-    <orderEntry type="module-library">
-      <library name="Maven: opencv:opencv:1.0">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/main/resources/lib/opencv-341.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="Maven: org.opencv:core:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.61" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.3.61" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.61" level="project" />

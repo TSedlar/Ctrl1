@@ -1,5 +1,6 @@
 package me.sedlar.ctrl1.api.util
 
+import me.sedlar.ctrl1.native.getResourceImage
 import org.opencv.core.*
 import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgproc.Imgproc
@@ -13,7 +14,7 @@ import javax.imageio.ImageIO
 object OpenCV {
 
     fun mat(imgPath: String, format: Int): Mat {
-        val img = ImageIO.read(javaClass.getResource("/models/$imgPath"))
+        val img = getResourceImage("/models/$imgPath")
         val mat = img.toMat(format)
         return mat
     }

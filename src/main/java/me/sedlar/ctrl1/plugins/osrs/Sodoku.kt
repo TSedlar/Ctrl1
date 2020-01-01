@@ -1,10 +1,12 @@
 package me.sedlar.ctrl1.plugins.osrs
 
+import me.sedlar.ctrl1.Ctrl1
 import me.sedlar.ctrl1.api.plugin.OSRSPlugin
 import me.sedlar.ctrl1.api.util.OpenCV
 import me.sedlar.ctrl1.api.util.findFirstTemplate
 import me.sedlar.ctrl1.api.util.toMat
 import me.sedlar.ctrl1.api.util.toRect
+import me.sedlar.ctrl1.native.getResourceImage
 import org.opencv.core.Mat
 import java.awt.*
 import java.awt.image.BufferedImage
@@ -180,12 +182,12 @@ class SodokuBoard(
     }
 
     fun assignImage(x: Int, y: Int): BufferedImage? {
-        val label = assignLabel(data[x][y])
+        val label = assignLabel(data[x][y]).toLowerCase()
         return if (label.isEmpty()) {
             null
         } else {
             val suffix = if (checkOddity(x, y)) "orange" else "yellow"
-            ImageIO.read(javaClass.getResource("/models/sodoku/${label}_${suffix}.png"))
+            getResourceImage("/models/sodoku/${label}_${suffix}.png")
         }
     }
 
