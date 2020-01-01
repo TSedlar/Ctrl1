@@ -11,6 +11,8 @@ private val BLANK_IMAGE = BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB)
 
 abstract class CtrlPlugin(private var windowTitles: Array<String>) : Runnable {
 
+    var enabled: Boolean = true
+
     abstract fun verify(): Boolean
 
     private var canvasHandle: WinDef.HWND? = null

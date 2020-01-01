@@ -14,7 +14,7 @@ object JavaLibraryPath {
     val SITE: String
         get() {
             val dirs = AppDirsFactory.getInstance()
-            return dirs.getSiteDataDir("bsb", "shared", "BlueStacksBot")
+            return dirs.getSiteDataDir("sedlar", "shared", "Ctrl1")
         }
 
     fun add(pathToAdd: String) {

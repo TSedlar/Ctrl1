@@ -8,9 +8,19 @@ import org.jnativehook.keyboard.NativeKeyEvent
 import org.jnativehook.keyboard.NativeKeyListener
 import org.reflections.Reflections
 import org.reflections.scanners.SubTypesScanner
+import java.awt.*
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.util.*
 import java.util.logging.Level
 import java.util.logging.LogManager
 import java.util.logging.Logger
+import javax.imageio.ImageIO
+import kotlin.collections.ArrayList
+
+private val pluginProperties = Properties()
+private val pluginPropFile = File(JavaLibraryPath.SITE, "plugins.properties")
 
 private fun loadPlugins(): List<CtrlPlugin> {
     val list = ArrayList<CtrlPlugin>()
@@ -37,6 +47,22 @@ private fun loadPlugins(): List<CtrlPlugin> {
     return list
 }
 
+private fun doExit() {
+    println("Shutting down....")
+    println("Writing properties...")
+    writePluginProperties()
+    println("Wrote properties")
+    GlobalScreen.unregisterNativeHook()
+    println("Unregistered NativeKeyListener")
+    println("Shut down")
+}
+
+fun writePluginProperties() {
+    pluginProperties.store(FileOutputStream(pluginPropFile), "Properties file for which plugins are enabled")
+}
+
+class Ctrl1
+
 fun main() {
     println("Loading libraries...")
     JavaLibraryPath.extractAndUseResourceLibs()
@@ -46,15 +72,54 @@ fun main() {
     val plugins = loadPlugins()
     println("Loaded plugins")
 
+    if (pluginPropFile.exists()) {
+        pluginProperties.load(FileInputStream(pluginPropFile))
+    }
+
+    if (SystemTray.isSupported()) {
+        val tray = SystemTray.getSystemTray()
+        val trayImage = ImageIO.read(Ctrl1::class.java.getResource("/tray-icon.png"))
+        val trayMenu = PopupMenu()
+
+        plugins.forEach { plugin ->
+            val box = CheckboxMenuItem(plugin.javaClass.simpleName, true)
+
+            if (pluginProperties.keys.contains(plugin.javaClass.canonicalName)) {
+                val enabled = pluginProperties[plugin.javaClass.canonicalName].toString().toBoolean()
+                plugin.enabled = enabled
+                box.state = enabled
+            }
+
+            box.addItemListener {
+                plugin.enabled = box.state
+                pluginProperties[plugin.javaClass.canonicalName] = box.state.toString()
+                writePluginProperties()
+            }
+
+            trayMenu.add(box)
+        }
+
+        val exit = MenuItem("Exit")
+        exit.addActionListener { doExit() }
+
+        trayMenu.add(exit)
+
+        val trayIcon = TrayIcon(trayImage, "Ctrl1", trayMenu)
+        trayIcon.isImageAutoSize = true
+
+        try {
+            tray.add(trayIcon)
+        } catch (e: AWTException) {
+            System.err.println("TrayIcon could not be added.")
+        }
+    }
+
     LogManager.getLogManager().reset()
     val logger: Logger = Logger.getLogger(GlobalScreen::class.java.getPackage().name)
     logger.level = Level.OFF
 
     Runtime.getRuntime().addShutdownHook(Thread {
-        println("Shutting down....")
-        GlobalScreen.unregisterNativeHook()
-        println("Unregistered NativeKeyListener")
-        println("Shut down")
+        doExit()
     })
 
     println("Registering NativeKeyListener..")
@@ -68,7 +133,7 @@ fun main() {
                         println("Running plugins...")
                         for (plugin in plugins) {
                             try {
-                                if (plugin.verify()) {
+                                if (plugin.enabled && plugin.verify()) {
                                     println("Plugin activated: ${plugin.javaClass.simpleName}")
                                     Thread(plugin).start()
                                 }
